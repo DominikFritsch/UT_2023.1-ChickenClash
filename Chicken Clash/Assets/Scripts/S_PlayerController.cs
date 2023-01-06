@@ -7,10 +7,12 @@ public class S_PlayerController : MonoBehaviour
     /* PUBLIC VARIABLES */
     #region
     public float force = 10.0f;
+    public float zBoundary = 10.6f;
     #endregion
 
     /* PRIVATE VARIABLES */
     #region
+    UnityEngine.Transform playerTransform;
     UnityEngine.Rigidbody playerRigidbody;
     #endregion
 
@@ -34,6 +36,7 @@ public class S_PlayerController : MonoBehaviour
     #region
     void Start()
     {
+        playerTransform = gameObject.GetComponent<UnityEngine.Transform>();
         playerRigidbody = gameObject.GetComponent<UnityEngine.Rigidbody>();
     }
     void Update()
@@ -42,8 +45,17 @@ public class S_PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if(playerTransform.position.z >= zBoundary)
+            playerTransform.position = new UnityEngine.Vector3(playerTransform.position.x, playerTransform.position.y, zBoundary);
+        else
+            VerticalMovement();
+
+        if (playerTransform.position.z <= -zBoundary)
+            playerTransform.position = new UnityEngine.Vector3(playerTransform.position.x, playerTransform.position.y, -zBoundary);
+        else
+            VerticalMovement();
+
         HorizontalMovement();
-        VerticalMovement();
     }
     #endregion
 
