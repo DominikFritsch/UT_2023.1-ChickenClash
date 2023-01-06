@@ -38,6 +38,10 @@ public class S_PlayerController : MonoBehaviour
     }
     void Update()
     {
+
+    }
+    void FixedUpdate()
+    {
         HorizontalMovement();
         VerticalMovement();
     }
