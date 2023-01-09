@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class S_DestroyOutOfBoundary : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    /* PRIVATE VARIABLES */
+    #region
+    private float minZBoundary = -15.0f;
+    #endregion
 
-    // Update is called once per frame
+    /* STANDARD METHODS */
+    #region
     void Update()
     {
-        
+        if(gameObject.transform.position.z <= minZBoundary)
+            UnityEngine.Object.Destroy(gameObject);
     }
+    #endregion
 }
