@@ -6,7 +6,7 @@ public class S_MoveDown : MonoBehaviour
 {
     /* PUBLIC VARIABLES */
     #region
-    public float force = 5.0f;
+    public float force = 50.0f;
     #endregion
 
     /* PRIVATE VARIABLES */
@@ -35,7 +35,7 @@ public class S_MoveDown : MonoBehaviour
     void FixedUpdate()
     {
         var direction = UnityEngine.Vector3.forward;
-        rb.AddForce(direction * force);
+        rb.AddForce(direction * -force);
     }
     #endregion
 }
