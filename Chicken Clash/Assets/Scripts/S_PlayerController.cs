@@ -12,8 +12,7 @@ public class S_PlayerController : MonoBehaviour
 
     /* PRIVATE VARIABLES */
     #region
-    UnityEngine.Transform playerTransform;
-    UnityEngine.Rigidbody playerRigidbody;
+    UnityEngine.Rigidbody rb;
     #endregion
 
     /* METHODS */
@@ -26,19 +25,19 @@ public class S_PlayerController : MonoBehaviour
 
         // Horizontal movement
         var direction = UnityEngine.Vector3.right;
-        playerRigidbody.AddForce(direction * horizontalInput * force);
+        rb.AddForce(direction * horizontalInput * force);
 
         // Vertical movement
         direction = UnityEngine.Vector3.forward;
-        playerRigidbody.AddForce(direction * verticalInput * force);
+        rb.AddForce(direction * verticalInput * force);
     }
     // Prevent the player from leaving the top or bottom
     void ConstrainPlayerPosition()
     {
-        if (playerTransform.position.z >= zBoundary)
-            playerTransform.position = new UnityEngine.Vector3(playerTransform.position.x, playerTransform.position.y, zBoundary);
-        if (playerTransform.position.z <= -zBoundary)
-            playerTransform.position = new UnityEngine.Vector3(playerTransform.position.x, playerTransform.position.y, -zBoundary);
+        if (gameObject.transform.position.z >= zBoundary)
+            gameObject.transform.position = new UnityEngine.Vector3(gameObject.transform.position.x, gameObject.transform.position.y, zBoundary);
+        if (gameObject.transform.position.z <= -zBoundary)
+            gameObject.transform.position = new UnityEngine.Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -zBoundary);
     }
     #endregion
 
@@ -46,8 +45,7 @@ public class S_PlayerController : MonoBehaviour
     #region
     void Start()
     {
-        playerTransform = gameObject.GetComponent<UnityEngine.Transform>();
-        playerRigidbody = gameObject.GetComponent<UnityEngine.Rigidbody>();
+        rb = gameObject.GetComponent<UnityEngine.Rigidbody>();
     }
     void Update()
     {
