@@ -14,23 +14,11 @@ public class S_MoveDown : MonoBehaviour
     UnityEngine.Rigidbody rb;
     #endregion
 
-    /* METHODS */
-    #region
-    #endregion
-
-    /* COUROTINES */
-    #region
-    #endregion
-
     /* STANDARD METHODS */
     #region
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
-    }
-    void Update()
-    {
-
+        rb = gameObject.GetComponent<UnityEngine.Rigidbody>();
     }
     void FixedUpdate()
     {
