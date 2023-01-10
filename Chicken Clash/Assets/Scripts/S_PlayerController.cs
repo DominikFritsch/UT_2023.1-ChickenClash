@@ -6,12 +6,14 @@ public class S_PlayerController : MonoBehaviour
 {
     /* PUBLIC VARIABLES */
     #region
+    public UnityEngine.GameObject prefabProjectile;
     public float force = 15.0f;
     public float zBoundary = 10.6f;
     #endregion
 
     /* PRIVATE VARIABLES */
     #region
+    private UnityEngine.GameObject gameObjectProjectiles;
     UnityEngine.Rigidbody rb;
     #endregion
 
@@ -39,22 +41,17 @@ public class S_PlayerController : MonoBehaviour
         if (gameObject.transform.position.z <= -zBoundary)
             gameObject.transform.position = new UnityEngine.Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -zBoundary);
     }
-    void ShootProjectiles()
+    void ShootProjectile()
     {
-        if(UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.Space))
-        {
-            /*
-            var original = prefabPowerup;
-            var xPositionValue = UnityEngine.Random.Range(-xSpawnRange, xSpawnRange);
-            var yPositionValue = ySpawnValue;
-            var zPositionValue = UnityEngine.Random.Range(-zSpawnRange, zSpawnRange);
-            var position = new UnityEngine.Vector3(xPositionValue, yPositionValue, zPositionValue);
-            var rotation = original.transform.rotation;
-            var parent = gameObjectPowerups.transform;
+        var original = prefabProjectile;
+        var xPositionValue = gameObject.transform.position.x;
+        var yPositionValue = gameObject.transform.position.y;
+        var zPositionValue = gameObject.transform.position.z;
+        var position = new UnityEngine.Vector3(xPositionValue, yPositionValue, zPositionValue);
+        var rotation = original.transform.rotation;
+        var parent = gameObjectProjectiles.transform;
 
-            UnityEngine.Object.Instantiate(original, position, rotation, parent);
-            */
-        }
+        UnityEngine.Object.Instantiate(original, position, rotation, parent);
     }
     #endregion
 
@@ -62,16 +59,20 @@ public class S_PlayerController : MonoBehaviour
     #region
     void Start()
     {
+        gameObjectProjectiles = UnityEngine.GameObject.Find("Projectiles");
         rb = gameObject.GetComponent<UnityEngine.Rigidbody>();
     }
     void Update()
     {
         ConstrainPlayerPosition();
+
+        if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.Space))
+            ShootProjectile();
     }
     void FixedUpdate()
     {
         MovePlayer();
-        
+
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -84,12 +85,12 @@ public class S_PlayerController : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Powerup"))
+        if (other.gameObject.CompareTag("Powerup"))
         {
             UnityEngine.Debug.Log("Player has collided with a powerup.");
             UnityEngine.Object.Destroy(other.gameObject);
         }
-            
+
     }
     #endregion
 
