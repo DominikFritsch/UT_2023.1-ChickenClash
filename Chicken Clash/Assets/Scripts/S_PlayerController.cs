@@ -69,7 +69,7 @@ public class S_PlayerController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Powerup"))
         {
-            // UnityEngine.Debug.Log("Player has collided with a powerup.");
+            UnityEngine.Debug.Log("Player has collided with a powerup.");
             UnityEngine.Object.Destroy(other.gameObject);
         }
             
