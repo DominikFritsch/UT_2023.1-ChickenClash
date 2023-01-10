@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f171bf133665444af993c8276c35ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 800
+  force: 500
   zBoundary: 10.6
 --- !u!54 &1101416081
 Rigidbody:
