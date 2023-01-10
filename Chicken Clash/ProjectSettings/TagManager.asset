@@ -8,6 +8,8 @@ TagManager:
   - Obstacle
   - Enemy
   - Powerup
+  - Egg
+  - Projectile
   layers:
   - Default
   - TransparentFX

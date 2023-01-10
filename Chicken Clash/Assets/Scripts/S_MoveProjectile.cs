@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class S_MoveProjectile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    /* PRIVATE VARIABLES */
+    #region
+    float speed = 25.0f;
+    #endregion
 
-    // Update is called once per frame
+    /* STANDARD METHODS */
+    #region
     void Update()
     {
-        
+        var direction = UnityEngine.Vector3.forward;
+        var frameFactor = UnityEngine.Time.deltaTime;
+        gameObject.transform.Translate(direction * speed * frameFactor);
     }
+    #endregion
 }

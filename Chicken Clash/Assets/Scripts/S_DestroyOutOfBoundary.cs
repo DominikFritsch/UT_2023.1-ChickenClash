@@ -6,15 +6,23 @@ public class S_DestroyOutOfBoundary : MonoBehaviour
 {
     /* PRIVATE VARIABLES */
     #region
-    private float minZBoundary = -15.0f;
+    public float zBoundaryValue = 15.0f;
     #endregion
 
     /* STANDARD METHODS */
     #region
     void Update()
     {
-        if(gameObject.transform.position.z <= minZBoundary)
-            UnityEngine.Object.Destroy(gameObject);
+        if(gameObject.CompareTag("Projectile"))
+        {
+            if (gameObject.transform.position.z >= zBoundaryValue)
+                UnityEngine.Object.Destroy(gameObject);
+        }
+        else
+        {
+            if (gameObject.transform.position.z <= zBoundaryValue)
+                UnityEngine.Object.Destroy(gameObject);
+        }
     }
     #endregion
 }
