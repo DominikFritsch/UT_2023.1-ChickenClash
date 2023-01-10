@@ -148,8 +148,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 691030729}
   - {fileID: 1927543246}
+  - {fileID: 691030729}
   - {fileID: 1580496106}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 691030734}
   - component: {fileID: 691030735}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -407,7 +407,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691030728}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e8f5df72072a64796d3cfd5792fb71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 2.5
+  speed: 10
 --- !u!114 &691030735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f171bf133665444af993c8276c35ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 10
+  force: 800
   zBoundary: 10.6
 --- !u!54 &1101416081
 Rigidbody:
@@ -1053,7 +1053,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101416075}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 80
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1209,7 +1209,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580496105}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1240,7 +1240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e8f5df72072a64796d3cfd5792fb71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 7.5
+  speed: 5
 --- !u!114 &1580496112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1538,7 +1538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e8f5df72072a64796d3cfd5792fb71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 3000
+  speed: 5
 --- !u!114 &1897884850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,7 +1567,7 @@ GameObject:
   - component: {fileID: 1927543251}
   - component: {fileID: 1927543252}
   m_Layer: 0
-  m_Name: Enemy (1)
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1667,7 +1667,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927543245}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1698,7 +1698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e8f5df72072a64796d3cfd5792fb71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 5
+  speed: 15
 --- !u!114 &1927543252
 MonoBehaviour:
   m_ObjectHideFlags: 0
