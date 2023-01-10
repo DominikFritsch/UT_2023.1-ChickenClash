@@ -819,6 +819,7 @@ MonoBehaviour:
   - {fileID: 5080351358968976425, guid: cc6e39f4a617c204594b67bdfd4d7914, type: 3}
   prefabObstacle: {fileID: 2918106967500789966, guid: 6cc9df9ace67e8c43a9811a22337c8b5, type: 3}
   prefabPowerup: {fileID: 2914134002313513373, guid: a0a0b69bcb34534418c04a9d2c549c80, type: 3}
+  prefabProjectile: {fileID: 7511528192528515063, guid: 30489ba2d5262844b8e0bb5b23f64006, type: 3}
 --- !u!1 &1101416075
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,7 +918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f171bf133665444af993c8276c35ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabProjectile: {fileID: 7511528192528515063, guid: 30489ba2d5262844b8e0bb5b23f64006, type: 3}
   force: 800
   zBoundary: 10.6
 --- !u!54 &1101416081

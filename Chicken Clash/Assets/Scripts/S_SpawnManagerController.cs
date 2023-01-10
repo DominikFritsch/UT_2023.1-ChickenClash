@@ -10,6 +10,7 @@ public class S_SpawnManagerController : MonoBehaviour
     public UnityEngine.GameObject[] prefabEnemies;
     public UnityEngine.GameObject prefabObstacle;
     public UnityEngine.GameObject prefabPowerup;
+    public UnityEngine.GameObject prefabProjectile;
     #endregion
 
     /* PRIVATE VARIABLES */
@@ -29,6 +30,7 @@ public class S_SpawnManagerController : MonoBehaviour
     float repeatRateEnemy = 3.0f;
     float repeatRateObstacle = 10.0f;
     float repeatRatePowerup = 10.0f;
+    float projectileOffset = 1.4f;
     #endregion
 
     /* METHODS */
@@ -70,6 +72,19 @@ public class S_SpawnManagerController : MonoBehaviour
 
         UnityEngine.Object.Instantiate(original, position, rotation, parent);
     }
+    public void SpawnProjectile()
+    {
+        var original = prefabProjectile;
+        var xPositionValue = gameObjectPlayer.transform.position.x;
+        var yPositionValue = gameObjectPlayer.transform.position.y;
+        var zPositionValue = gameObjectPlayer.transform.position.z + projectileOffset;
+        var position = new UnityEngine.Vector3(xPositionValue, yPositionValue, zPositionValue);
+        var rotation = original.transform.rotation;
+        var parent = gameObjectProjectiles.transform;
+
+        UnityEngine.Object.Instantiate(original, position, rotation, parent);
+    }
+
     #endregion
 
     /* STANDARD METHODS */

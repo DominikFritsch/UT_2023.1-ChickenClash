@@ -6,16 +6,14 @@ public class S_PlayerController : MonoBehaviour
 {
     /* PUBLIC VARIABLES */
     #region
-    public UnityEngine.GameObject prefabProjectile;
     public float force = 15.0f;
     public float zBoundary = 10.6f;
     #endregion
 
     /* PRIVATE VARIABLES */
     #region
-    UnityEngine.GameObject gameObjectProjectiles;
+    UnityEngine.GameObject gameObjectSpawnManager;
     UnityEngine.Rigidbody rb;
-    float projectileOffset = 1.4f;
     #endregion
 
     /* METHODS */
@@ -42,25 +40,13 @@ public class S_PlayerController : MonoBehaviour
         if (gameObject.transform.position.z <= -zBoundary)
             gameObject.transform.position = new UnityEngine.Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -zBoundary);
     }
-    void ShootProjectile()
-    {
-        var original = prefabProjectile;
-        var xPositionValue = gameObject.transform.position.x;
-        var yPositionValue = gameObject.transform.position.y;
-        var zPositionValue = gameObject.transform.position.z + projectileOffset;
-        var position = new UnityEngine.Vector3(xPositionValue, yPositionValue, zPositionValue);
-        var rotation = original.transform.rotation;
-        var parent = gameObjectProjectiles.transform;
-
-        UnityEngine.Object.Instantiate(original, position, rotation, parent);
-    }
     #endregion
 
     /* STANDARD METHODS */
     #region
     void Start()
     {
-        gameObjectProjectiles = UnityEngine.GameObject.Find("Projectiles");
+        gameObjectSpawnManager = UnityEngine.GameObject.Find("SpawnManager");
         rb = gameObject.GetComponent<UnityEngine.Rigidbody>();
     }
     void Update()
@@ -68,7 +54,7 @@ public class S_PlayerController : MonoBehaviour
         ConstrainPlayerPosition();
 
         if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.Space))
-            ShootProjectile();
+            gameObjectSpawnManager.GetComponent<S_SpawnManagerController>().SpawnProjectile();
     }
     void FixedUpdate()
     {
