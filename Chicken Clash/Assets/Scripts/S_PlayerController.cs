@@ -13,8 +13,9 @@ public class S_PlayerController : MonoBehaviour
 
     /* PRIVATE VARIABLES */
     #region
-    private UnityEngine.GameObject gameObjectProjectiles;
+    UnityEngine.GameObject gameObjectProjectiles;
     UnityEngine.Rigidbody rb;
+    float projectileOffset = 1.4f;
     #endregion
 
     /* METHODS */
@@ -46,7 +47,7 @@ public class S_PlayerController : MonoBehaviour
         var original = prefabProjectile;
         var xPositionValue = gameObject.transform.position.x;
         var yPositionValue = gameObject.transform.position.y;
-        var zPositionValue = gameObject.transform.position.z;
+        var zPositionValue = gameObject.transform.position.z + projectileOffset;
         var position = new UnityEngine.Vector3(xPositionValue, yPositionValue, zPositionValue);
         var rotation = original.transform.rotation;
         var parent = gameObjectProjectiles.transform;
