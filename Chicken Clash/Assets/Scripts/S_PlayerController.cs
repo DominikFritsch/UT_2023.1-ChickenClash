@@ -49,12 +49,30 @@ public class S_PlayerController : MonoBehaviour
     }
     void Update()
     {
-
+        ConstrainPlayerPosition();
     }
     void FixedUpdate()
     {
         MovePlayer();
-        ConstrainPlayerPosition();
+        
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Environment"))
+            UnityEngine.Debug.Log("Player has collided with environment.");
+        else if (collision.gameObject.CompareTag("Obstacle"))
+            UnityEngine.Debug.Log("Player has collided with an obstacle.");
+        else if (collision.gameObject.CompareTag("Enemy"))
+            UnityEngine.Debug.Log("Player has collided with an enemy.");
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Powerup"))
+        {
+            // UnityEngine.Debug.Log("Player has collided with a powerup.");
+            UnityEngine.Object.Destroy(other.gameObject);
+        }
+            
     }
     #endregion
 
