@@ -60,7 +60,15 @@ public class S_SpawnManagerController : MonoBehaviour
     }
     void SpawnPowerup()
     {
+        var original = prefabPowerup;
+        var xPositionValue = UnityEngine.Random.Range(-xSpawnRange, xSpawnRange);
+        var yPositionValue = ySpawnValue;
+        var zPositionValue = UnityEngine.Random.Range(-zSpawnRange, zSpawnRange);
+        var position = new UnityEngine.Vector3(xPositionValue, yPositionValue, zPositionValue);
+        var rotation = original.transform.rotation;
+        var parent = gameObjectPowerups.transform;
 
+        UnityEngine.Object.Instantiate(original, position, rotation, parent);
     }
     #endregion
 
@@ -78,6 +86,7 @@ public class S_SpawnManagerController : MonoBehaviour
 
         InvokeRepeating("SpawnRandomEnemies", startDelay, repeatRateEnemy);
         InvokeRepeating("SpawnObstacle", startDelay, repeatRateObstacle);
+        InvokeRepeating("SpawnPowerup", startDelay, repeatRatePowerup);
     }
     void Update()
     {
