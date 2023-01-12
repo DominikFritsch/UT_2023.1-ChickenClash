@@ -786,8 +786,8 @@ MonoBehaviour:
   - {fileID: 7547656398417151649, guid: 6630bed406232b748a359cd8c66a00de, type: 3}
   - {fileID: 6422856518738840414, guid: 8c4c0880f54a2bd4e91eabd3c19eb767, type: 3}
   - {fileID: 5080351358968976425, guid: cc6e39f4a617c204594b67bdfd4d7914, type: 3}
-  prefabObstacle: {fileID: 2918106967500789966, guid: 6cc9df9ace67e8c43a9811a22337c8b5, type: 3}
   prefabPowerup: {fileID: 2914134002313513373, guid: a0a0b69bcb34534418c04a9d2c549c80, type: 3}
+  prefabEgg: {fileID: 262124854208355387, guid: ad3d373d24f6db74abdc39a87961dcab, type: 3}
   prefabProjectile: {fileID: 7511528192528515063, guid: 30489ba2d5262844b8e0bb5b23f64006, type: 3}
 --- !u!1 &1101416075
 GameObject:

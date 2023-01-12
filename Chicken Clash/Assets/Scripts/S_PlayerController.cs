@@ -65,8 +65,6 @@ public class S_PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Environment"))
             UnityEngine.Debug.Log("Player has collided with environment.");
-        else if (collision.gameObject.CompareTag("Obstacle"))
-            UnityEngine.Debug.Log("Player has collided with an obstacle.");
         else if (collision.gameObject.CompareTag("Enemy"))
             UnityEngine.Debug.Log("Player has collided with an enemy.");
     }
@@ -77,7 +75,11 @@ public class S_PlayerController : MonoBehaviour
             UnityEngine.Debug.Log("Player has collided with a powerup.");
             UnityEngine.Object.Destroy(other.gameObject);
         }
-
+        else if(other.gameObject.CompareTag("Egg"))
+        {
+            UnityEngine.Debug.Log("Player has collided with an egg.");
+            UnityEngine.Object.Destroy(other.gameObject);
+        }
     }
     #endregion
 

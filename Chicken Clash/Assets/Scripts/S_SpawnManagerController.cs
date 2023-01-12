@@ -9,6 +9,7 @@ public class S_SpawnManagerController : MonoBehaviour
     #region
     public UnityEngine.GameObject[] prefabEnemies;
     public UnityEngine.GameObject prefabPowerup;
+    public UnityEngine.GameObject prefabEgg;
     public UnityEngine.GameObject prefabProjectile;
     #endregion
 
@@ -57,6 +58,22 @@ public class S_SpawnManagerController : MonoBehaviour
 
         UnityEngine.Object.Instantiate(original, position, rotation, parent);
     }
+    public void SpawnEgg(float x, float y, float z)
+    {
+        if(z <= zSpawnRange && z >= -zSpawnRange)
+        {
+            var original = prefabEgg;
+            var xPositionValue = x;
+            var yPositionValue = y;
+            var zPositionValue = z;
+            var position = new UnityEngine.Vector3(xPositionValue, yPositionValue, zPositionValue);
+            var rotation = original.transform.rotation;
+            var parent = gameObjectEggs.transform;
+
+            UnityEngine.Object.Instantiate(original, position, rotation, parent);
+        }
+    }
+
     public void SpawnProjectile()
     {
         var original = prefabProjectile;

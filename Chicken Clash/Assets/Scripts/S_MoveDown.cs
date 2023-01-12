@@ -25,5 +25,10 @@ public class S_MoveDown : MonoBehaviour
     {
         rb.velocity = UnityEngine.Vector3.back * (speed / conversionFactor);
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Egg"))
+            UnityEngine.Object.Destroy(other.gameObject);
+    }
     #endregion
 }
