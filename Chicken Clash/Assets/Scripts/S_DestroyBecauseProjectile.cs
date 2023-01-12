@@ -13,10 +13,6 @@ public class S_DestroyBecauseProjectile : MonoBehaviour
                 UnityEngine.GameObject.Destroy(gameObject);
                 UnityEngine.GameObject.Destroy(other.gameObject);
             }        
-            if (gameObject.CompareTag("Obstacle"))
-            {
-                UnityEngine.GameObject.Destroy(other.gameObject);
-            }
         }
     }
     #endregion
